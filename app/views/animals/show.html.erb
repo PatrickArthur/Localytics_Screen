@@ -22,8 +22,10 @@
 
 <p>
   <strong>Employee Id taking care of Animal</strong>
+  <% cache do %>
   <% @employees.each do |x| %>
     <%=x.employee_id %>
+  <% end %>
   <% end %>
 </p>
 
