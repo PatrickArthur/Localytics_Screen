@@ -7,24 +7,32 @@ class EmployeesController < ApplicationController
     @employees = Employee.all
   end
 
+
   # GET /employees/1
   # GET /employees/1.json
   def show
+    @employee = Employee.find(params[:id])
+    @cartakers = @employee.cartakers
   end
 
   # GET /employees/new
   def new
     @employee = Employee.new
+    @employee.cartakers.build
   end
+
 
   # GET /employees/1/edit
   def edit
+    @employee = Employee.find(params[:id])
+    @employee.cartakers.build unless @employee.cartakers.present?
   end
 
   # POST /employees
   # POST /employees.json
   def create
     @employee = Employee.new(employee_params)
+
 
     respond_to do |format|
       if @employee.save
@@ -69,6 +77,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :email)
+      params.require(:employee).permit(:employee_id, :name, :email, cartakers_attributes: [:id, :employee_id , :animal_id, :name, :created_at, :updated_at,:_destroy])
     end
 end

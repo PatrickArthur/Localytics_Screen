@@ -1,0 +1,5 @@
+
+<div class="nested-fields">
+  <%= f.collection_select(:animal_id, Animal.all, :id, :name, {:include_blank => true}) %>
+  <%= link_to_remove_association "remove animal", f %>
+</div>

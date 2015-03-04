@@ -16,6 +16,9 @@
       <tr>
         <td><%= employee.name %></td>
         <td><%= employee.email %></td>
+        <% employee.cartakers.each do |x| %>
+        <% x %>
+        <% end %>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +30,5 @@
 <br>
 
 <%= link_to 'New Employee', new_employee_path %>
+
+

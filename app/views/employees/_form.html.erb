@@ -19,6 +19,14 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+  <%= f.fields_for :cartakers do |cartaker| %>
+  <%= render 'cartaker_fields', :f => cartaker %>
+  <% end %>
+  </div>
+  <div class ="links">
+    <%= link_to_add_association 'add Animal', f, :cartakers %>
+     </div>
   <div class="actions">
     <%= f.submit %>
   </div>
