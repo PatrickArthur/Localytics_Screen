@@ -10,6 +10,9 @@ class AnimalsController < ApplicationController
   # GET /animals/1
   # GET /animals/1.json
   def show
+    @animal = Animal.find(params[:id])
+    @cartakers = Cartaker.all
+    @employees = @animal.cartakers
   end
 
   # GET /animals/new
